@@ -1,0 +1,62 @@
+1 ..How many seconds are in an hour? Use the interactive interpreter as a calculator and multiply the number of seconds in a minute (60) by the number of minutes in an hour (also 60).
+sol. 60 
+
+2.. Assign the result from the previous task (seconds in an hour) to a variable called seconds_per_hour.
+
+ans seconds_per_hour = 60 * 60
+
+3. How many seconds do you think there are in a day? Make use of the variables seconds per hour and minutes per hour.
+
+ans seconds_per_day = seconds_per_hour * 24
+    seconds_per_day = 3600 * 24
+    seconds_per_day = 86400
+
+4.Calculate seconds per day again, but this time save the result in a variable called seconds_per_day
+
+ans seconds_per_hour = 60 * 60
+    seconds_per_day = seconds_per_hour * 24
+
+This will assign the value of 86,400 to the variable seconds_per_day. You can then use this variable in your code to represent the number of seconds in a day.
+
+5. Divide seconds_per_day by seconds_per_hour. Use floating-point (/) division.
+
+ans seconds_per_hour = 60 * 60
+    seconds_per_day = seconds_per_hour * 24
+
+    seconds_per_day / seconds_per_hour
+ This will output 24.0, which represents the number of hours in a day. When we divide the number of seconds in a day by the number of seconds in an hour, we get the number of hours in a day as a floating-point number.
+
+
+6.Divide seconds_per_day by seconds_per_hour, using integer (//) division. Did this number agree with the floating-point value from the previous question, aside from the final .0?
+
+ans seconds_per_hour = 60 * 60
+    seconds_per_day = seconds_per_hour * 24
+
+    seconds_per_day // seconds_per_hour
+
+ This will output 24, which represents the number of hours in a day, without the decimal point. This integer value agrees with the floating-point value we obtained in the previous question, except that the floating-point value has a .0 at the end.
+
+The reason for this is that integer division always rounds down to the nearest integer, so any decimal part is discarded. In this case, the result of the division is exactly 24.0, so the decimal part is zero and the integer division gives us exactly 24.
+
+7. Write a generator, genPrimes, that returns the sequence of prime numbers on successive calls to its next() method: 2, 3, 5, 7, 11, ...
+
+ans def genPrimes():
+    # start with the first prime number
+    num = 2
+    
+    # loop indefinitely
+    while True:
+        # check if the current number is prime
+        is_prime = True
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        
+        # if the current number is prime, yield it and move to the next number
+        if is_prime:
+            yield num
+            num += 1
+        else:
+            # if the current number is not prime, move to the next number
+            num += 1
